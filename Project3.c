@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+
 int checkCrn(int crn)
 {
     int i = 0;
@@ -9,6 +11,8 @@ int checkCrn(int crn)
             return 1;
     return 0;
 }
+
+
 int getCreditHours(int crn)
 {
     switch (crn)
@@ -82,13 +86,13 @@ void main()
         double total = 0;
         int i = 0, sid, n, credsum = 0, flag;
         char c;
-        printf("Enter the student id\n");
+        printf("Enter the student id: \n");
         scanf("%d", &sid);
-        printf("Enter how many courses up to 3 \n");
+        printf("Enter how many courses up to 3:  \n");
         scanf("%d", &n);
         if (n > 3 || n < 1)
         {
-            printf("Invalid no. of courses\n");
+            printf("Invalid number of courses\n");
             n = 0;
             scanf("%d", &flag);
         }
@@ -111,24 +115,24 @@ void main()
         }
         if (flag != -1)
             if (credsum > 7)
-                printf("Sorry we cant process more than 7 credit hours\n");
+                printf("Sorry we can't process more than 7 credit hours\n");
             else
             {
                 printf("VALENCE COMMUNITY COLLEGE\n ORLANDO FL 10101\n");
                 printf("---------------------\n\n");
                 printf("Fee invoice prepared for Student V%d \n\n ", sid);
-                printf("1 Credit hour = %f \n\n", ch);
+                printf("1 Credit hour = %.2f \n\n", ch);
                 printf("CRN\tCR_PREFIX\tCR_HOURS\n");
                 for (i = 0; i < n; i++)
                 {
                     double d = hours[i] * ch;
-                    printf("%d\t%s\t%d\t$ %f\n", crn[i], printPrefix(crn[i]), hours[i], d);
+                    printf("%d\t%s\t%d\t$ %.2f\n", crn[i], printPrefix(crn[i]), hours[i], d);
                     total = total + d;
                 }
                 total = total + fee;
-                printf("\n\tHealth & id fees $ %f\n", fee);
+                printf("\n\tHealth & id fees $ %.2f\n", fee);
                 printf("--------------------------------------\n");
-                printf("\t Total Payments $ %f\n", total);
+                printf("\t Total Payments $ %.2f\n", total);
             }
         printf("Would you like to continue Y=yes N=no\n");
         scanf("%c");
@@ -137,10 +141,10 @@ void main()
         {
             if (c == 'N' || c == 'n')
             {
-                printf("Goodbye!\n");
+                printf("Thank you for using the program, Goodbye!\n");
                 exit(0);
             }
-            if (c != 'Y' || c != 'y')
+            if (c != 'Y' && c != 'y')
             {
                 printf("INVALID ENTRY It has to y or n\n");
                 scanf("%c");
