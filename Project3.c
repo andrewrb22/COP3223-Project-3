@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+// Valencia courses
 int checkCrn(int crn)
 {
     int i = 0;
@@ -12,7 +12,7 @@ int checkCrn(int crn)
     return 0;
 }
 
-
+//Credit for each course
 int getCreditHours(int crn)
 {
     switch (crn)
@@ -45,6 +45,7 @@ int getCreditHours(int crn)
         return 0;
     }
 }
+//Prefix for each class
 char *printPrefix(int crn)
 {
     switch (crn)
@@ -113,6 +114,7 @@ void main()
                 credsum = credsum + hours[i];
             }
         }
+        //No more than 7 credit hours validation
         if (flag != -1)
             if (credsum > 7)
                 printf("Sorry we can't process more than 7 credit hours\n");
@@ -134,6 +136,7 @@ void main()
                 printf("--------------------------------------\n");
                 printf("\t Total Payments $ %.2f\n", total);
             }
+            //Valid or invalid entry to continue
         printf("Would you like to continue Y=yes N=no\n");
         scanf("%c");
         scanf("%c", &c);
